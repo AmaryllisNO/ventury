@@ -6,11 +6,8 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import toast from 'react-hot-toast';
 
-import VenturyLogo from '../public/img/venturylogo.svg';
-
-import Loader from '../components/Loader';
-import Card from '../components/Card';
-import Button from '../components/Button';
+// UI COMPONENTS
+import Hero from '../components/Hero';
 
 const Home: NextPage = () => {
   const user = false;
@@ -34,29 +31,15 @@ const Home: NextPage = () => {
       </div>
 
       <div className='container '>
-        <div className='columns is-mobile is-vcentered '>
-          <div className='column is-one-fifth'>
-            <Image
-              src={VenturyLogo}
-              alt='ventury logo'
-              width='100px'
-              height='120px'
-            />
-          </div>
-          <div className='column'>
-            <h1>VENTURY</h1>
-            <small>Build your own venturing party</small>
-          </div>
-        </div>
-
+        <Hero />
         <div className='columns'>
           {' '}
           <div className='column p-0 mt-6 '>
             <Link href='/login'>
-              <a className='button mb-3'>Log In</a>
+              <a className='button button--mw315 mb-3'>Log In</a>
             </Link>
             <Link href='/signup'>
-              <a className='button mb-3'>Sign Up</a>
+              <a className='button button--mw315 mb-3'>Sign Up</a>
             </Link>
           </div>
         </div>
