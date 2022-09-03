@@ -1,5 +1,12 @@
 @import 'bulma/bulma.sass';
+@import './partials/index';
+@import './partials/variables';
+
+// UI COMPONENTS
+
 @import './partials/loader';
+@import './partials/button';
+@import './partials/navbar';
 
 :root {
   --color-bg: #eef0f1;
@@ -17,11 +24,19 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   height: 100%;
+  background-color: $background-colour;
+  color: white;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h1 {
+  font-family: amiri, arial, sans-serif;
+  font-size: 2em;
+  letter-spacing: 6px;
 }
 
 * {
