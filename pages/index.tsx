@@ -1,15 +1,18 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import toast from 'react-hot-toast';
 
+import auth from '../lib/firebase';
+
+console.log(auth);
+
 // UI COMPONENTS
 import Hero from '../components/Hero';
 
-const Home: NextPage = () => {
+const Landing: NextPage = () => {
   const user = false;
   const router = useRouter();
   useEffect(() => {
@@ -26,9 +29,9 @@ const Home: NextPage = () => {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <title>Index</title>
       </Head>
-      <div>
+      {/* <div>
         <button onClick={() => toast.success('hello toast!')}>Toast Me</button>
-      </div>
+      </div> */}
 
       <div className='container '>
         <Hero />
@@ -49,4 +52,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Landing;
