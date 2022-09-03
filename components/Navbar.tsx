@@ -3,10 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 
 const Navbar = () => {
-  const { user, username } = {
-    user: 'user',
-    username: 'username',
-  };
+  const user = null;
+  const username = null;
 
   return (
     <nav className='navbar'>

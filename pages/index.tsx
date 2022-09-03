@@ -3,8 +3,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
-
 import { useRouter } from 'next/router';
+import toast from 'react-hot-toast';
 
 import VenturyLogo from '../public/img/venturylogo.svg';
 
@@ -29,6 +29,9 @@ const Home: NextPage = () => {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <title>Index</title>
       </Head>
+      <div>
+        <button onClick={() => toast.success('hello toast!')}>Toast Me</button>
+      </div>
 
       <div className='container '>
         <div className='columns is-mobile is-vcentered '>
