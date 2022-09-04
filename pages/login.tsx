@@ -11,7 +11,7 @@ const login = (props: any) => {
   // 2. user signed in, but missing username <UsernameForm />
   // 3. user signed in, has username <SignOutButton />
   console.log(user);
-  // auth.signOut();
+  auth.signOut();
 
   return (
     <main>
