@@ -94,16 +94,26 @@ function UsernameForm() {
 
     if (regex.test(val)) {
       setFormValue(val);
-      setLoading(false);
-      setIsValid(true);
+      setLoading(true);
+      setIsValid(false);
     }
+
+    console.log(
+      'loading: ',
+      loading,
+      'isValid: ',
+      isValid,
+      'formValue: ',
+      formValue
+    );
   };
 
-  //
+  // https://stackoverflow.com/questions/68011589/debounce-not-working-as-expected-react-context-api-call USEDEBOUNCE HOOK
 
   // Hit the database for username match after each debounced change
   // useCallback is required for debounce to work
   const checkUsername = useCallback((username: string) => {
+    console.log(username);
     debounce(async () => {
       if (username.length >= 3) {
         const ref = doc(getFirestore(), 'usernames', username);
@@ -126,7 +136,7 @@ function UsernameForm() {
         <form onSubmit={onSubmit}>
           <input
             name='username'
-            placeholder='myname'
+            placeholder='my name'
             value={formValue}
             onChange={onChange}
           />
@@ -154,7 +164,7 @@ function UsernameForm() {
   );
 }
 
-function UsernameMessage({
+const UsernameMessage = ({
   username,
   isValid,
   loading,
@@ -162,7 +172,7 @@ function UsernameMessage({
   username: string;
   isValid: boolean;
   loading: boolean;
-}) {
+}) => {
   if (loading) {
     return <p>Checking...</p>;
   } else if (isValid) {
@@ -172,4 +182,4 @@ function UsernameMessage({
   } else {
     return <p></p>;
   }
-}
+};
