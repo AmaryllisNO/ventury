@@ -1,10 +1,10 @@
 import Link from 'next/link';
-
 import React from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../lib/context';
 
 const Navbar = () => {
-  const user = null;
-  const username = null;
+  const { user, username } = useContext(UserContext);
 
   return (
     <nav className='navbar'>

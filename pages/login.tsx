@@ -1,16 +1,17 @@
 import React from 'react';
 import { auth, googleAuthProvider } from '../lib/firebase';
 import { signInWithPopup } from 'firebase/auth';
-
-console.log(auth);
+import { useContext } from 'react';
+import { UserContext } from '../lib/context';
 
 const login = (props: any) => {
-  const user = null;
-  const username = null;
+  const { user, username } = useContext(UserContext);
 
   // 1. user signed out <SignInButton />
   // 2. user signed in, but missing username <UsernameForm />
   // 3. user signed in, has username <SignOutButton />
+  console.log(user);
+  // auth.signOut();
 
   return (
     <main>
@@ -23,7 +24,10 @@ const login = (props: any) => {
           <SignOutButton />
         )
       ) : (
-        <SignInButton />
+        <>
+          <SignInButton />
+          <SignOutButton />
+        </>
       )}
     </main>
   );
