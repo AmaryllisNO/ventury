@@ -5,22 +5,19 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import toast from 'react-hot-toast';
 
-import auth from '../lib/firebase';
-
-console.log(auth);
+import { auth } from '../lib/firebase';
 
 // UI COMPONENTS
 import Hero from '../components/Hero';
 
 const Landing: NextPage = () => {
-  const user = false;
+  const user = auth.currentUser;
+
   const router = useRouter();
   useEffect(() => {
-    console.log(router.pathname);
-
-    /*  if (!user) {
-      router.push('/signin');
-    } */
+    if (user) {
+      router.push('/feed');
+    }
   });
 
   return (

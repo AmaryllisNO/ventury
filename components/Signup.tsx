@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/firebase';
+import Link from 'next/link';
+import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { auth, googleAuthProvider } from '../lib/firebase';
 
 const Signup = () => {
   const [registerEmail, setRegisterEmail] = useState('');
@@ -20,8 +21,10 @@ const Signup = () => {
       console.log(error);
     }
   };
+
   return (
     <div>
+      <h2>SIGN UP</h2>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -49,8 +52,25 @@ const Signup = () => {
           Sign Up
         </button>
       </form>
+      or
+      <SignInButton />
       <div>Current User: {auth.currentUser?.email}</div>
+      <div>
+        Already have an account? <Link href='/login'>Login</Link>
+      </div>
     </div>
+  );
+};
+
+const SignInButton = () => {
+  const signInWithGoogle = async () => {
+    await signInWithPopup(auth, googleAuthProvider);
+  };
+
+  return (
+    <button className='button' onClick={signInWithGoogle}>
+      Sign In With Google
+    </button>
   );
 };
 
