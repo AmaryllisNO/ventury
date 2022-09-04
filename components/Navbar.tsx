@@ -2,10 +2,17 @@ import Link from 'next/link';
 import Img from 'next/image';
 import { useContext } from 'react';
 import { UserContext } from '../lib/context';
+import { auth } from '../lib/firebase';
+import { signOut } from 'firebase/auth';
 
 // Top navbar
 export default function Navbar() {
   const { user, username } = useContext(UserContext);
+
+  const logOutAndCheckUser = () => {
+    signOut(auth);
+    console.log(username);
+  };
 
   console.log(username);
 
@@ -16,6 +23,16 @@ export default function Navbar() {
           <Link passHref={true} href='/'>
             <button className='button'>FEED</button>
           </Link>
+        </li>
+        <li>
+          <button
+            className='button'
+            onClick={() => {
+              logOutAndCheckUser();
+            }}
+          >
+            Sign Out
+          </button>
         </li>
 
         {/* user is signed-in and has username */}
