@@ -14,8 +14,6 @@ export default function Navbar() {
     console.log(username);
   };
 
-  console.log(username);
-
   return (
     <nav className='navbar'>
       <ul>
